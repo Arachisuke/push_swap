@@ -6,7 +6,7 @@
 /*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 17:45:26 by macos             #+#    #+#             */
-/*   Updated: 2024/06/26 19:40:18 by macos            ###   ########.fr       */
+/*   Updated: 2024/06/27 13:27:15 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ void lets_sort_b_1(t_stack *tmp, t_stack **stack_a, t_stack **stack_b) // je tri
     int test;
     (void)stack_a; // a change 
     if (tmp->indice == 2)
-			sb(stack_b);
-   else if (tmp->indice == ft_size(*stack_b) && tmp->indice > 1)
+		sb(stack_b);
+    else if (tmp->indice == ft_size(*stack_b) && tmp->indice > 1)
         rrb(stack_b);
-		else if (tmp->indice > ft_size(*stack_b) / 2 + 1)
+	else if (tmp->indice > ft_size(*stack_b) / 2 + 1)
+    {
+        test = (ft_size(*stack_b) + 1) - tmp->indice;
+		while(test > 0) // ou jinit les indice et jattend que lindice soit egal a 0 en sachant que apres il va rentrer dans les autres if peut etre
         {
-            test = (ft_size(*stack_b) + 1) - tmp->indice;
-			while(test > 0) // ou jinit les indice et jattend que lindice soit egal a 0 en sachant que apres il va rentrer dans les autres if peut etre
-            {
                 rrb(stack_b);
                 test--;
             }
