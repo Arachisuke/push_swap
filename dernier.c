@@ -6,7 +6,7 @@
 /*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 16:50:59 by macos             #+#    #+#             */
-/*   Updated: 2024/06/27 13:48:12 by macos            ###   ########.fr       */
+/*   Updated: 2024/06/27 13:53:11 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,10 @@ void lets_sort_same(t_stack *tmp, t_stack **stack_a, t_stack **stack_b) // pour 
 	else if ((tmp->indice > ft_size(*stack_a) / 2 + 1
 			&& tmp->target_indice > ft_size(*stack_b) / 2 + 1))
 	{
-		while((ft_size(*stack_a) + 1) - tmp->indice || (ft_size(*stack_b) + 1) - tmp->target_indice) // while((ft_size(*stack_b) + 1) - tmp->target_indice)
+		while((tmp->indice > 1) || (tmp->target_indice > 1)) // CORRIGER
          {
             rrr(stack_a, stack_b);
+            maj(stack_a, stack_b);
          }   
 	}
     else if (tmp->target_indice > 1 && tmp->indice > 1)
@@ -109,8 +110,11 @@ void lets_sort_same(t_stack *tmp, t_stack **stack_a, t_stack **stack_b) // pour 
 	     if ((tmp->indice <= ft_size(*stack_a) / 2 + 1
 	 	    && tmp->target_indice <= ft_size(*stack_b) / 2 + 1))
 	    {
-            while(--tmp->indice > 1 || --tmp->target_indice > 1)
+            while(tmp->indice > 1 || tmp->target_indice > 1)
+            {
                 rr(stack_a, stack_b);
+                maj(stack_a, stack_b);
+            }
 	    }
     }
     maj(stack_a, stack_b);
@@ -124,7 +128,7 @@ void lets_sort_same1(t_stack *tmp, t_stack **stack_a, t_stack **stack_b) // pour
 	else if ((tmp->indice > ft_size(*stack_a) / 2 + 1
 			&& tmp->target_indice > ft_size(*stack_b) / 2 + 1))
 	{
-		while(tmp->indice > 1 || tmp->target_indice > 1) // while((ft_size(*stack_b) + 1) - tmp->target_indice)
+		while(tmp->indice > 1 || tmp->target_indice > 1) //corriger
          {
             rrr(stack_a, stack_b);
             maj1(stack_a, stack_b);
@@ -136,7 +140,10 @@ void lets_sort_same1(t_stack *tmp, t_stack **stack_a, t_stack **stack_b) // pour
 	 	    && tmp->target_indice <= ft_size(*stack_b) / 2 + 1))
 	    {
             while(--tmp->indice > 1 || --tmp->target_indice > 1)
+            {
                 rr(stack_a, stack_b);
+                maj1(stack_a, stack_b);
+            }
 	    }
     }
     maj1(stack_a, stack_b);

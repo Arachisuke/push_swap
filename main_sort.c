@@ -6,7 +6,7 @@
 /*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:46:42 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/26 20:30:40 by macos            ###   ########.fr       */
+/*   Updated: 2024/06/27 15:32:40 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	main_sort(t_stack **stack_a, t_stack **stack_b)
 		maj(stack_a, stack_b);
 		target_smallest(stack_a, stack_b);
 		calcul_cost_a(stack_a, stack_b);
+		//print_cost(stack_a);
 		find_the_cheapest_a(stack_a, stack_b); // il trouve le cheapest et trie
 	}
 	sort_three(stack_a);
