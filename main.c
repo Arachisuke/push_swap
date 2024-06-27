@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:16:25 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/13 19:48:18 by wzeraig          ###   ########.fr       */
+/*   Updated: 2024/06/26 20:19:31 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	t_stack	*stack;
 	t_stack	*stack_b;
 
+	stack_b = NULL;
 	stack = NULL;
 	// stack_b = NULL;
 	if (argc == 1) // donc ya pas d'arg heiiiinn
@@ -36,7 +37,7 @@ int	main(int argc, char **argv)
 	if (!if_sorted(&stack))
 		l_close("c'est deja trier mon reuuuuuf");
 	
-	main_sort(&stack, &stack_b);
+	choose_sort(&stack, &stack_b);
 	// print_indice(&stack_b);
 	// print_indice(&stack);
 	// print_stack(&stack_b);

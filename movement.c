@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 09:30:44 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/12 17:13:18 by wzeraig          ###   ########.fr       */
+/*   Updated: 2024/06/26 20:30:54 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ t_stack	*sb(t_stack **stack)
 	*stack = swap(stack);
 	if (!stack)
 		return (NULL);
-	return (*stack);
 	ft_printf("sb\n");
+	return (*stack);
 }
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
@@ -77,7 +77,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	push(stack_b, stack_a);
 	if (stack_a == NULL)
 		return ;
-	print_stack(stack_a);
+	//print_stack(stack_a);
 	ft_printf("pa\n");
 }
 void	pb(t_stack **stack_a, t_stack **stack_b)
@@ -86,7 +86,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	push(stack_a, stack_b);
 	//print_stack(stack_b);
-	//ft_printf("pb\n");
+	ft_printf("pb\n");
 }
 void	rotate(t_stack **stack)
 {
@@ -166,7 +166,7 @@ void	sort_three(t_stack **stack) // made by me =)
 		ra(stack);
 	if (if_sorted(stack))
 		sa(stack);
-	print_stack(stack);
+	//print_stack(stack);
 }
 int	if_sorted(t_stack **stack)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:46:42 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/13 20:02:29 by wzeraig          ###   ########.fr       */
+/*   Updated: 2024/06/26 20:30:40 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,28 @@ void	main_sort(t_stack **stack_a, t_stack **stack_b)
 	pb(stack_a, stack_b);
 	pb(stack_a, stack_b); // push deux fois sans check
 	init_node(stack_a);
-	init_node_b(stack_b); // j'init les positions
-	target_smallest(stack_a, stack_b);
-	print_target_indice(stack_a);
-	calcul_cost_a(stack_a, stack_b);
-	//print_cost(stack_a);
-
+	init_indice(stack_b); // j'init les positions
+	while(ft_size(*stack_a) > 3)
+	{
+		maj(stack_a, stack_b);
+		target_smallest(stack_a, stack_b);
+		calcul_cost_a(stack_a, stack_b);
+		find_the_cheapest_a(stack_a, stack_b); // il trouve le cheapest et trie
+	}
+	sort_three(stack_a);
+	//print_stack(stack_b);
+	while(ft_size(*stack_b) > 0)
+	{
+		maj1(stack_a, stack_b);
+		//print_indice(stack_b);
+		target_biggest(stack_a, stack_b); // peut etre de trp vu que je lutilise dans maj
+		//print_target_indice(stack_b);
+		calcul_cost_b(stack_a, stack_b);
+		//print_cost(stack_b);
+		find_the_cheapest_b(stack_a, stack_b);
+	}
+	find_the_min(stack_a);
+	//print_stack(stack_a);
 }
 void	target_smallest(t_stack **stack_a, t_stack **stack_b)
 // valider par la street
@@ -88,7 +104,7 @@ void	target_biggest(t_stack **stack_a, t_stack **stack_b)
 			i = 1;
 		}
 	}
-	print_target_indice(stack_b);
+	//print_target_indice(stack_b);
 }
 int	if_no_smallest(t_stack *tmp_a, t_stack **stack_b)
 {
@@ -124,7 +140,7 @@ void	target_the_biggest(t_stack *tmp_a, t_stack **stack_b)
 		i++;
 	}
 }
-void	target_the_smallest(t_stack *tmp_b, t_stack **stack_a)
+int	target_the_smallest(t_stack *tmp_b, t_stack **stack_a)
 {
 	t_stack	*tmp_a;
 	int		smallestnumber;
@@ -143,6 +159,7 @@ void	target_the_smallest(t_stack *tmp_b, t_stack **stack_a)
 		i++;
 		tmp_a = tmp_a->next;
 	}
+	return(tmp_b->target_indice);
 }
 int	if_no_biggest(t_stack *tmp_b, t_stack **stack_a) // dans la chaine a
 {

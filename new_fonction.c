@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_fonction.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:40:19 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/13 19:29:56 by wzeraig          ###   ########.fr       */
+/*   Updated: 2024/06/26 20:30:57 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int	ft_size(t_stack *lst)
 	}
 	return (i);
 }
-void choose_sort(t_stack **stack)
+void choose_sort(t_stack **stack, t_stack **stack_b)
 {
 	if (ft_size(*stack) == 2)
 		two_arg(stack);
-	if (ft_size(*stack) == 3)
+	else if  (ft_size(*stack) == 3)
 		sort_three(stack);
-	//if (ft_size(*stack) == 4)
-		// trier les 4
-	//else
-		//main_sort(stack);
+	else if (ft_size(*stack) == 4)
+		sort_four(stack, stack_b);
+	else
+		main_sort(stack, stack_b);
 }
 void two_arg(t_stack **stack)
 {
@@ -67,7 +67,7 @@ void init_node(t_stack **stack) // donc jarrive a init sur la base d'actuel... a
 	}
 }
 
-void init_node_b(t_stack **stack)
+void init_indice(t_stack **stack)
 {
 	t_stack *actuel;
 	int i;
@@ -80,4 +80,14 @@ void init_node_b(t_stack **stack)
 		i++;
 		actuel = actuel->next;
 	}
+}
+
+void sort_four(t_stack **stack_a, t_stack **stack_b)
+{
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	target_biggest(stack_a, stack_b);
+	find_the_cheapest_b(stack_a, stack_b);
+	find_the_min(stack_a);
+	//print_stack(stack_a);
 }

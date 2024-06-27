@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:15:48 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/13 19:27:00 by wzeraig          ###   ########.fr       */
+/*   Updated: 2024/06/24 16:49:06 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ void	print_target_indice(t_stack **stack)
 	t_stack	*actuel;
 
 	actuel = *stack;
+	printf("voici la target : \n");
 	while (actuel)
 	{
 		//printf("[%d]->", actuel->content);
@@ -188,6 +189,7 @@ void	print_indice(t_stack **stack)
 	t_stack	*actuel;
 
 	actuel = *stack;
+	printf("voici l'indice : \n");
 	while (actuel)
 	{
 		//printf("[%d]->", actuel->content);
@@ -229,6 +231,8 @@ void	print_cost(t_stack **stack)
 	t_stack	*actuel;
 
 	actuel = *stack;
+	printf("voici le cost : \n");
+	
 	while (actuel)
 	{
 		//printf("[%d]->", actuel->content);

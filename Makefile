@@ -1,5 +1,5 @@
 NAME = push_swap
-SRC = main.c check_arg.c movement.c new_fonction.c main_sort.c cost_calcul.c
+SRC = main.c check_arg.c movement.c new_fonction.c main_sort.c cost_calcul.c dernier.c dernier2.c
 OBJ = $(SRC:.c=.o)
 LIBFT = ./libft/libft.a
 FT_PRINTF = ./ft_printf/libftprintf.a
