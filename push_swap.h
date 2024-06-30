@@ -6,7 +6,7 @@
 /*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:23:22 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/26 20:18:52 by macos            ###   ########.fr       */
+/*   Updated: 2024/06/30 19:54:51 by macos            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 # define PUSH_SWAP_H
 
 # define ERROR 1
+# define RED "\033[0;31m"
+
 
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
+#include "GNL/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 
@@ -41,7 +44,7 @@ t_stack				*ft_last(t_stack *lst);
 void				ft_back(t_stack **lst, t_stack *new);
 t_stack				*ft_new(long value);
 void				print_stack(t_stack **stack);
-int					l_close(char *str);
+int					l_close(char *str, t_stack **stack);
 void				compare(t_stack **stack, int nbr);
 t_stack				*swap(t_stack **stack);
 t_stack				*push(t_stack **stack_1, t_stack **stack_2);
@@ -102,6 +105,12 @@ void lets_sort_same1(t_stack *tmp, t_stack **stack_a, t_stack **stack_b); // pou
 
 void find_the_min(t_stack **stack); // trouver le min dans la stack a et le remettre tout en haut
 void sort_four(t_stack **stack_a, t_stack **stack_b);
+
+void command(t_stack **stack_a, t_stack **stack_b, char *cmd);
+void ft_free(char **strs);
+void free_stack(t_stack **stack);
+
+
 
 
 
