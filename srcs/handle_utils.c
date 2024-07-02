@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 20:25:40 by macos             #+#    #+#             */
-/*   Updated: 2024/06/30 20:25:43 by macos            ###   ########.fr       */
+/*   Updated: 2024/07/01 19:16:00 by wzeraig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,17 @@ t_stack	*ft_last(t_stack *lst)
 
 int	l_close(char *str, t_stack **stack)
 {
-	ft_putstr_fd(RED, 2);
-	ft_putstr_fd(str, 2);
-	ft_putstr_fd("\n", 2);
-	if (stack)
+	if (strlen(str) != 0)
+	{
+		ft_putstr_fd(RED, 2);
+		ft_putstr_fd(str, 2);
+		ft_putstr_fd("\n", 2);
+	}
+	if (*stack)
 		free_stack(stack);
 	exit(0);
 }
+
 void	compare(t_stack **stack, int nbr)
 {
 	t_stack	*actuel;
@@ -60,6 +64,7 @@ void	compare(t_stack **stack, int nbr)
 		actuel = actuel->next;
 	}
 }
+
 long	ft_atoii(const char *str)
 {
 	long	res;

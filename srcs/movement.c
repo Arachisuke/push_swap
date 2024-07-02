@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 09:30:44 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/30 20:56:49 by macos            ###   ########.fr       */
+/*   Updated: 2024/07/01 19:22:17 by wzeraig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_stack	*swap(t_stack **stack)
 	(*stack)->next = tmp;
 	return (*stack);
 }
+
 t_stack	*sa(t_stack **stack_a)
 {
 	if (!*stack_a)
@@ -35,6 +36,7 @@ t_stack	*sa(t_stack **stack_a)
 		return (NULL);
 	return (*stack_a);
 }
+
 t_stack	*sb(t_stack **stack)
 {
 	if (*stack == NULL)
@@ -47,6 +49,7 @@ t_stack	*sb(t_stack **stack)
 	ft_printf("sb\n");
 	return (*stack);
 }
+
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	if (*stack_b == NULL)
@@ -59,6 +62,7 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = swap(stack_b);
 	ft_printf("ss\n");
 }
+
 t_stack	*push(t_stack **stack_1, t_stack **stack_2)
 {
 	t_stack	*tmp;

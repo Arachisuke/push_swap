@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:25:22 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/30 16:50:35 by macos            ###   ########.fr       */
+/*   Updated: 2024/07/01 19:15:37 by wzeraig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	count_word(const char *str, char c)
 	compteur = 0;
 	while (str[i])
 	{
-		if ((str[i] != c && str[i + 1] == c) || (str[i] != c && str[i
-				+ 1] == '\0'))
+		if ((str[i] != c && str[i + 1] == c)
+			|| (str[i] != c && str[i + 1] == '\0'))
 			compteur++;
 		i++;
 	}

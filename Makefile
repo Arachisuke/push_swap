@@ -4,7 +4,7 @@ BONUS = checker
 SRC = main.c ./srcs/check_arg.c ./srcs/movement.c ./srcs/new_fonction.c ./srcs/main_sort.c ./srcs/cost_calcul.c ./srcs/dernier.c ./srcs/dernier2.c \
 		./srcs/cost_calcul2.c ./srcs/handle_utils.c ./srcs/movement_utils.c ./srcs/movement2.c ./srcs/movement3.c \
 
-BSRCS = ./srcs/check_arg.c ./srcs/movement.c checker.c ./srcs/movement2.c ./srcs/movement3.c ./srcs/movement_utils.c ./srcs/handle_utils.c \
+BSRCS = ./srcs/check_arg.c ./srcs/movement.c checker.c ./srcs/movement2.c ./srcs/movement3.c ./srcs/movement_utils.c ./srcs/handle_utils.c
 
 BOBJS = $(BSRCS:.c=.o)
 OBJ = $(SRC:.c=.o)
@@ -13,7 +13,7 @@ FT_PRINTF = ./ft_printf/libftprintf.a
 GNL = ./GNL/libgnl.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -fPIC
 
 
 $(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
@@ -23,8 +23,8 @@ all: $(NAME) $(BONUS)
 
 bonus : $(BONUS)
 
-$(BONUS): $(BOBJS) $(LIBFT) $(FT_PRINTF) $(GNL)
-	$(CC) $(CFLAGS) -o $(BONUS) $(BOBJS) $(LIBFT) $(FT_PRINTF) $(GNL)
+$(BONUS): $(BOBJS) $(LIBFT) $(GNL) $(FT_PRINTF) 
+	$(CC) $(CFLAGS) -o $(BONUS) $(BOBJS) $(LIBFT) $(GNL) $(FT_PRINTF) 
 
 $(LIBFT):
 	make bonus -C ./libft
@@ -37,11 +37,14 @@ clean:
 	rm -f $(OBJ) $(BOBJS)
 	make -C ./libft clean
 	make -C ./ft_printf clean
+	make -C ./GNL clean
 
 fclean: clean
 	rm -f $(NAME) $(BONUS)
 	make -C ./libft fclean
 	make -C ./ft_printf fclean
+	make -C ./GNL fclean
+
 
 re: fclean all
 

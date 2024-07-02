@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:15:48 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/30 20:52:38 by macos            ###   ########.fr       */
+/*   Updated: 2024/07/01 19:49:07 by wzeraig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	checkarg(int argc, char **argv)
 	}
 	return (0);
 }
+
 int	is_space(char *str)
 {
 	int	i;
@@ -49,7 +50,7 @@ int	is_space(char *str)
 	{
 		if (str[i] == ' ' && i != 0 && str[i + 1] != '\0')
 			if ((str[i + 1] >= '0' && str[i + 1] <= '9') || str[i + 1] == '-'
-				|| str[i + 1] == '+') 
+				|| str[i + 1] == '+')
 				return (1);
 		i++;
 	}
@@ -70,7 +71,10 @@ t_stack	*handle_one_input(t_stack **stack_a, char **argv, int j)
 	{
 		num = ft_atoii(arg[i]);
 		if (num == 2147483648)
+		{
+			ft_free(arg);
 			l_close("ERROR", stack_a);
+		}
 		compare(stack_a, num);
 		if (i == 0 && !*stack_a)
 			*stack_a = ft_new(num);
@@ -130,9 +134,9 @@ t_stack	*ft_new(long value)
 // 	while (actuel)
 // 	{
 // 		printf("[%d]->", actuel->content);
-// 		//printf("[%d]->", actuel->indice);
-// 		//printf("[%d]->", actuel->target_indice);
-// 		//printf("[%d]->", actuel->previousnbr);		
+// 		// printf("[%d]->", actuel->indice);
+// 		// printf("[%d]->", actuel->target_indice);
+// 		// printf("[%d]->", actuel->previousnbr);
 // 		actuel = actuel->next;
 // 	}
 // 	printf("NULL");
@@ -150,7 +154,7 @@ t_stack	*ft_new(long value)
 // 		//printf("[%d]->", actuel->indice);
 // 		printf("[%d]->", actuel->target_indice);
 // 		//printf("[%d]->", actuel->cost);
-// 		//printf("[%d]->", actuel->previousnbr);		
+// 		//printf("[%d]->", actuel->previousnbr);
 // 		actuel = actuel->next;
 // 	}
 // 	printf("NULL");
@@ -167,7 +171,7 @@ t_stack	*ft_new(long value)
 // 		//printf("[%d]->", actuel->content);
 // 		printf("[%d]->", actuel->indice);
 // 		//printf("[%d]->", actuel->target_indice);
-// 		//printf("[%d]->", actuel->previousnbr);		
+// 		//printf("[%d]->", actuel->previousnbr);
 // 		actuel = actuel->next;
 // 	}
 // 	printf("NULL");
@@ -187,17 +191,16 @@ t_stack	*ft_new(long value)
 
 // 	actuel = *stack;
 // 	printf("voici le cost : \n");
-	
+
 // 	while (actuel)
 // 	{
 // 		//printf("[%d]->", actuel->content);
 // 		//printf("[%d]->", actuel->indice);
 // 		//printf("[%d]->", actuel->target_indice);
 // 		printf("[%d]->", actuel->cost);
-// 		//printf("[%d]->", actuel->previousnbr);		
+// 		//printf("[%d]->", actuel->previousnbr);
 // 		actuel = actuel->next;
 // 	}
 // 	printf("NULL");
 // 	printf("\n");
 // }
-

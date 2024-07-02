@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 20:31:58 by macos             #+#    #+#             */
-/*   Updated: 2024/06/30 20:56:34 by macos            ###   ########.fr       */
+/*   Updated: 2024/07/01 19:22:00 by wzeraig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	ft_front(t_stack **list, t_stack *new)
 	new->next = *list;
 	*list = new;
 }
-void	sort_three(t_stack **stack) 
+
+void	sort_three(t_stack **stack)
 {
 	if ((*stack)->content > (*stack)->next->content
 		&& ((*stack)->content > (*stack)->next->next->content))
@@ -32,6 +33,7 @@ void	sort_three(t_stack **stack)
 	if (if_sorted(stack))
 		sa(stack);
 }
+
 int	if_sorted(t_stack **stack)
 {
 	t_stack	*actuel;
@@ -45,27 +47,30 @@ int	if_sorted(t_stack **stack)
 	}
 	return (0);
 }
-void ft_free(char **strs)
+
+void	ft_free(char **strs)
 {
-	int j;
+	int	j;
 
 	j = 0;
-
-	while(strs[j])
+	while (strs[j])
 	{
 		free(strs[j]);
+		j++;
 	}
 	free(strs);
 }
 
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
-	tmp = *stack;
-	while(tmp)
+	tmp = (*stack)->next;
+	while (tmp)
 	{
-		free(tmp);
+		free(*stack);
+		*stack = tmp;
 		tmp = tmp->next;
 	}
+	free(*stack);
 }

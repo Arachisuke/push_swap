@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:23:22 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/30 19:54:51 by macos            ###   ########.fr       */
+/*   Updated: 2024/07/01 18:58:58 by wzeraig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 # define ERROR 1
 # define RED "\033[0;31m"
 
-
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
-#include "GNL/get_next_line.h"
+# include "./GNL/get_next_line.h"
+# include "./ft_printf/ft_printf.h"
+# include "./libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 
@@ -27,8 +26,8 @@ typedef struct s_stack
 {
 	int				content;
 	struct s_stack	*next;
-	int target_indice; // init a 0
-	int previousnbr;   // init a 0
+	int				target_indice;
+	int				previousnbr;
 	int				indice;
 	int				cost;
 }					t_stack;
@@ -79,39 +78,41 @@ void				target_smallest(t_stack **stack_a, t_stack **stack_b);
 void				target_biggest(t_stack **stack_a, t_stack **stack_b);
 int					if_no_smallest(t_stack *tmp_a, t_stack **stack_b);
 void				target_the_biggest(t_stack *tmp_a, t_stack **stack_b);
-int	target_the_smallest(t_stack *tmp_b, t_stack **stack_a);
+int					target_the_smallest(t_stack *tmp_b, t_stack **stack_a);
 int					if_no_biggest(t_stack *tmp_b, t_stack **stack_a);
 void				calcul_cost_same_a(t_stack *tmp, t_stack **stack_a,
 						t_stack **stack_b);
 void				calcul_cost_a(t_stack **stack_a, t_stack **stack_b);
-void	calcul_cost_b(t_stack **stack_a, t_stack **stack_b);
-void	calcul_cost_same_b(t_stack *tmp, t_stack **stack_a, t_stack **stack_b);
+void				calcul_cost_b(t_stack **stack_a, t_stack **stack_b);
+void				calcul_cost_same_b(t_stack *tmp, t_stack **stack_a,
+						t_stack **stack_b);
 
+void				print_cost(t_stack **stack);
+void				find_the_cheapest_a(t_stack **stack_a, t_stack **stack_b);
+void				lets_sort_a(t_stack *tmp, t_stack **stack_a,
+						t_stack **stack_b);
+void				lets_sort_b(t_stack *tmp, t_stack **stack_a,
+						t_stack **stack_b);
+void				lets_sort_same(t_stack *tmp, t_stack **stack_a,
+						t_stack **stack_b);
+void				find_the_cheapest_b(t_stack **stack_a, t_stack **stack_b);
+void				lets_sort_a_1(t_stack *tmp, t_stack **stack_a,
+						t_stack **stack_b);
+void				lets_sort_b_1(t_stack *tmp, t_stack **stack_a,
+						t_stack **stack_b);
 
-void	print_cost(t_stack **stack);
-void find_the_cheapest_a(t_stack **stack_a, t_stack **stack_b);
-void lets_sort_a(t_stack *tmp, t_stack **stack_a, t_stack **stack_b); // je trie la stack a par rapport a son indice et le place tout en haut
-void lets_sort_b(t_stack *tmp, t_stack **stack_a, t_stack **stack_b); // je trie la stack b par rapport a son target_indice et le place tout en haut
-void lets_sort_same(t_stack *tmp, t_stack **stack_a, t_stack **stack_b); // pour le cas ou on veut ramener stack a dans stack b je trie si ya le meme mov
-void find_the_cheapest_b(t_stack **stack_a, t_stack **stack_b);
-void lets_sort_a_1(t_stack *tmp, t_stack **stack_a, t_stack **stack_b); // je trie la stack a par rapport a son indice et le place tout en haut
-void lets_sort_b_1(t_stack *tmp, t_stack **stack_a, t_stack **stack_b); // je trie la stack b par rapport a son target_indice et le place tout en haut
+void				maj(t_stack **stack_a, t_stack **stack_b);
+void				maj1(t_stack **stack_a, t_stack **stack_b);
 
-void maj(t_stack **stack_a, t_stack **stack_b); //  change en stack1 stack2 comme ca la fonction marche dans les deux sens
-void maj1(t_stack **stack_a, t_stack **stack_b); //  change en stack1 stack2 comme ca la fonction marche dans les deux sens
+void				lets_sort_same1(t_stack *tmp, t_stack **stack_a,
+						t_stack **stack_b);
 
-void lets_sort_same1(t_stack *tmp, t_stack **stack_a, t_stack **stack_b); // pour le cas ou on veut ramener stack a dans stack b je trie si ya le meme mov
+void				find_the_min(t_stack **stack);
+void				sort_four(t_stack **stack_a, t_stack **stack_b);
 
-
-void find_the_min(t_stack **stack); // trouver le min dans la stack a et le remettre tout en haut
-void sort_four(t_stack **stack_a, t_stack **stack_b);
-
-void command(t_stack **stack_a, t_stack **stack_b, char *cmd);
-void ft_free(char **strs);
-void free_stack(t_stack **stack);
-
-
-
-
+void				command(t_stack **stack_a, t_stack **stack_b, char *cmd);
+void				ft_free(char **strs);
+void				free_stack(t_stack **stack);
+void				command2(t_stack **stack_a, t_stack **stack_b, char *cmd);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_fonction.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:40:19 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/30 20:57:16 by macos            ###   ########.fr       */
+/*   Updated: 2024/07/01 19:23:24 by wzeraig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,38 +26,41 @@ int	ft_size(t_stack *lst)
 	}
 	return (i);
 }
-void choose_sort(t_stack **stack, t_stack **stack_b)
+
+void	choose_sort(t_stack **stack, t_stack **stack_b)
 {
 	if (ft_size(*stack) == 2)
 		two_arg(stack);
-	else if  (ft_size(*stack) == 3)
+	else if (ft_size(*stack) == 3)
 		sort_three(stack);
 	else if (ft_size(*stack) == 4)
 		sort_four(stack, stack_b);
 	else
 		main_sort(stack, stack_b);
 }
-void two_arg(t_stack **stack)
+
+void	two_arg(t_stack **stack)
 {
 	if ((*stack)->content > (*stack)->next->content)
 		sa(stack);
 }
-void test1(t_stack **stack)
+
+void	test1(t_stack **stack)
 {
-	while(*stack)
+	while (*stack)
 	{
-		*stack = (*stack)->next; 
+		*stack = (*stack)->next;
 	}
 }
 
-void init_node(t_stack **stack)
+void	init_node(t_stack **stack)
 {
-	t_stack *actuel;
-	int i;
+	t_stack	*actuel;
+	int		i;
 
 	actuel = *stack;
 	i = 1;
-	while(actuel)
+	while (actuel)
 	{
 		actuel->indice = i;
 		actuel->target_indice = 0;

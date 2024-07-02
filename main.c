@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macos <macos@student.42.fr>                +#+  +:+       +#+        */
+/*   By: wzeraig <wzeraig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:16:25 by wzeraig           #+#    #+#             */
-/*   Updated: 2024/06/30 20:57:36 by macos            ###   ########.fr       */
+/*   Updated: 2024/07/01 17:07:16 by wzeraig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	main(int argc, char **argv)
 
 	stack_b = NULL;
 	stack = NULL;
-	if (argc == 1) 
+	if (argc == 1)
 		return (0);
 	if (!argv[1])
-		return (0); 
+		return (0);
 	checkarg(argc, argv);
 	if (argc == 2 && !is_space(argv[1]))
-		return (0); 
+		return (0);
 	if (argc == 2)
 		stack = handle_one_input(&stack, argv, 1);
 	else
@@ -33,9 +33,8 @@ int	main(int argc, char **argv)
 	if (stack == NULL)
 		return (1);
 	if (!if_sorted(&stack))
-		l_close("ERRORTRI", &stack);
-	
+		l_close("", &stack);
 	choose_sort(&stack, &stack_b);
-	free_stack(&stack);
+	if (stack)
+		free_stack(&stack);
 }
-
